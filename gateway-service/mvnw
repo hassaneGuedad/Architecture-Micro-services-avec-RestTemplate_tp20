@@ -1,0 +1,183 @@
+#!/bin/sh
+# Copyright 2015 the original author or authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+##############################################################################
+##
+##  Maven Start Up Batch script for UN*X
+##
+##############################################################################
+
+# Attempt to set APP_HOME
+# Resolve links: $0 may be a link
+PRG="$0"
+# Need this for relative symlinks.
+while [ -h "$PRG" ] ; do
+    ls -ld "$PRG"
+    LINK=`expr "$PRG" : '.*-> \(.*\)$'`
+    if expr "$LINK" : '/.*' > /dev/null; then
+        PRG="$LINK"
+    else
+        PRG=`dirname "$PRG"`"/$LINK"
+    fi
+done
+SAVED="`pwd`"
+cd "`dirname \"$PRG\"`" >/dev/null
+APP_HOME="`pwd -P`"
+cd "$SAVED" >/dev/null
+
+APP_NAME="Maven"
+APP_BASE_NAME=`basename "$0"`
+
+# Add default JVM options here. You can also use JAVA_OPTS and MAVEN_OPTS to pass JVM options to this script.
+DEFAULT_JVM_OPTS=""
+
+# Use the maximum available, or set MAX_FD != maximum.
+MAX_FD="maximum"
+
+warn () {
+    echo "$*"
+}
+
+die () {
+    echo
+    echo "$*"
+    echo
+    exit 1
+}
+
+# OS specific support.
+case "`uname`" in
+  CYGWIN* )
+    cygwin=true
+    ;;
+  Darwin* )
+    darwin=true
+    ;;
+  MSYS* | MINGW* )
+    msys=true
+    ;;
+  NONSTOP* )
+    nonstop=true
+    ;;
+esac
+
+if [ -z "$JAVA_HOME" ] && [ -r /etc/profile.d/java.sh ]; then
+    . /etc/profile.d/java.sh
+fi
+
+if [ -z "$JAVA_HOME" ] ; then
+  if [ -r /usr/libexec/java_home ]; then
+    JAVA_HOME=`/usr/libexec/java_home`
+  elif [ -r /usr/bin/java_home ]; then
+    JAVA_HOME=`/usr/bin/java_home`
+  elif [ -r /usr/libexec/java_home ]; then
+    JAVA_HOME=`/usr/libexec/java_home`
+  fi
+fi
+
+if [ -z "$JAVA_HOME" ] ; then
+    die "JAVA_HOME not set and cannot be found"
+fi
+
+if [ ! -d "$JAVA_HOME" ] ; then
+    die "JAVA_HOME is not a valid directory: $JAVA_HOME"
+fi
+
+# Increase the maximum file descriptors if we can.
+if [ "$cygwin" = "false" -a "$darwin" = "false" -a "$nonstop" = "false" ] ; then
+    MAX_FD_LIMIT=`ulimit -H -n`
+    if [ $? -eq 0 ] ; then
+        if [ "$MAX_FD" = "maximum" -o "$MAX_FD" = "max" ] ; then
+            MAX_FD="$MAX_FD_LIMIT"
+        fi
+        ulimit -n $MAX_FD
+        if [ $? -ne 0 ] ; then
+            warn "Could not set maximum file descriptor limit: $MAX_FD"
+        fi
+    else
+        warn "Could not query maximum file descriptor limit: $MAX_FD_LIMIT"
+    fi
+fi
+
+# For Darwin, add options to specify how the application appears in the dock
+if [ "$darwin" = "true" ] ; then
+    MAVEN_OPTS="$MAVEN_OPTS \"-Xdock:name=$APP_NAME\" \"-Xdock:icon=$APP_HOME/media/maven.icns\""
+fi
+
+# For Cygwin or MSYS, switch paths to Windows format before running java
+if [ "$cygwin" = "true" ] || [ "$msys" = "true" ] ; then
+    [ -n "$M2_HOME" ] &&
+    M2_HOME=`cygpath --path --windows "$M2_HOME"`
+    [ -n "$JAVA_HOME" ] &&
+    JAVA_HOME=`cygpath --path --windows "$JAVA_HOME"`
+    [ -n "$CLASSPATH" ] &&
+    CLASSPATH=`cygpath --path --windows "$CLASSPATH"`
+    [ -n "$MAVEN_HOME" ] &&
+    MAVEN_HOME=`cygpath --path --windows "$MAVEN_HOME"`
+fi
+
+# Provide a "fake" JAVA_HOME variable in order for Maven to function
+# in environments where JAVA_HOME is not set.
+if [ -z "$JAVA_HOME" ] ; then
+    JAVA_HOME="/usr/share/java"
+fi
+
+if [ -n "$CLASSPATH" ] ; then
+    CLASSPATH=`cygpath --path --windows "$CLASSPATH"`
+fi
+
+# For Mingw, ensure paths are in UNIX format before anything is touched
+if [ "$msys" = "true" ] ; then
+    [ -n "$M2_HOME" ] &&
+    M2_HOME="`( cd "$M2_HOME" && pwd )`"
+    [ -n "$JAVA_HOME" ] &&
+    JAVA_HOME="`( cd "$JAVA_HOME" && pwd )`"
+fi
+
+if [ -z "$M2_HOME" ] ; then
+    M2_HOME=`dirname "$0"`/..
+fi
+
+# if it doesn't exist, don't continue
+if [ ! -d "$M2_HOME" ] ; then
+    die "M2_HOME is not a valid directory: $M2_HOME"
+fi
+
+# shellcheck disable=SC2086 # safe to lose quoting when using wildcards
+CLASSPATH=$M2_HOME/boot/plexus-classworlds-2.6.0.jar
+BOOT_CLASSPATH=$CLASSPATH
+
+# For Cygwin, switch paths to Windows format before running java
+if [ "$cygwin" = "true" ] ; then
+    [ -n "$M2_HOME" ] &&
+    M2_HOME=`cygpath --path --windows "$M2_HOME"`
+    [ -n "$JAVA_HOME" ] &&
+    JAVA_HOME=`cygpath --path --windows "$JAVA_HOME"`
+    [ -n "$CLASSPATH" ] &&
+    CLASSPATH=`cygpath --path --windows "$CLASSPATH"`
+    [ -n "$BOOT_CLASSPATH" ] &&
+    BOOT_CLASSPATH=`cygpath --path --windows "$BOOT_CLASSPATH"`
+fi
+
+# Execute Maven
+exec "$JAVA_HOME/bin/java" \
+  $MAVEN_OPTS \
+  $JAVA_OPTS \
+  -classpath "$CLASSPATH" \
+  -Dclassworlds.conf="$M2_HOME"/bin/m2.conf \
+  -Dmaven.home="$M2_HOME" \
+  org.codehaus.plexus.classworlds.launcher.Launcher "$@"
+

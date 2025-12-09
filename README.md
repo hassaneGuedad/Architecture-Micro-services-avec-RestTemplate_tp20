@@ -160,6 +160,8 @@ public class Client {
     }
   }
 ]
+---
+---
 
 <img width="637" height="284" alt="CAP3" src="https://github.com/user-attachments/assets/e83a18c0-4e29-4164-a809-52371e57b6e4" />
 

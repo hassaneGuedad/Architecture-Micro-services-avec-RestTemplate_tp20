@@ -1,4 +1,4 @@
-<img width="637" height="284" alt="CAP3" src="https://github.com/user-attachments/assets/fa0b4ad5-6c8a-42ee-8331-7e710f4af7a7" /># Architecture Microservices avec RestTemplate - TP20
+# Architecture Microservices avec RestTemplate - TP20
 
 ## 📋 Description
 

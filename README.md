@@ -1,4 +1,4 @@
-# Architecture Microservices avec RestTemplate - TP20
+<img width="637" height="284" alt="CAP3" src="https://github.com/user-attachments/assets/fa0b4ad5-6c8a-42ee-8331-7e710f4af7a7" /># Architecture Microservices avec RestTemplate - TP20
 
 ## 📋 Description
 
@@ -129,7 +129,8 @@ public class Client {
 
 ### 1. Eureka Dashboard - Services Enregistrés
 
-![Eureka Dashboard](./screenshots/eureka-dashboard.png)
+<img width="639" height="327" alt="cap1" src="https://github.com/user-attachments/assets/c7897ced-27cb-4f53-9811-343e78b907d2" />
+
 
 *Dashboard Eureka montrant tous les microservices enregistrés (Gateway, Car Service, Client Service)*
 
@@ -159,28 +160,12 @@ public class Client {
     }
   }
 ]
-```
 
----
+<img width="637" height="284" alt="CAP3" src="https://github.com/user-attachments/assets/e83a18c0-4e29-4164-a809-52371e57b6e4" />
 
-### 3. Communication Inter-Services via RestTemplate
+<img width="641" height="308" alt="cap2" src="https://github.com/user-attachments/assets/e4230c1b-a53b-4353-a5a1-0e6222108cb3" />
 
-![RestTemplate Flow](./screenshots/resttemplate-flow.png)
+<img width="640" height="229" alt="CAP4" src="https://github.com/user-attachments/assets/b62bc5a4-5b01-402e-9e20-fb73ed94fb10" />
 
-*Le Car Service utilise RestTemplate pour récupérer les informations des clients*
+<img width="611" height="269" alt="CAP5" src="https://github.com/user-attachments/assets/e3a65c05-a402-417a-a935-b1c402ad37c4" />
 
----
-
-### 4. Base de Données MySQL
-
-![MySQL Cars Table](./screenshots/mysql-cars.png)
-
-*Table `cars` dans MySQL avec les données persistées*
-
----
-
-### 5. Test avec Postman
-
-![Postman Test](./screenshots/postman-test.png)
-
-*Test des endpoints via Postman montrant la requête et la réponse JSON*

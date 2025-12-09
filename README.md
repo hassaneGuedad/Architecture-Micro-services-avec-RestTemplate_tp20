@@ -167,9 +167,13 @@ public class Client {
 
 <img width="637" height="284" alt="CAP3" src="https://github.com/user-attachments/assets/e83a18c0-4e29-4164-a809-52371e57b6e4" />
 
+
 <img width="641" height="308" alt="cap2" src="https://github.com/user-attachments/assets/e4230c1b-a53b-4353-a5a1-0e6222108cb3" />
+
 
 <img width="640" height="229" alt="CAP4" src="https://github.com/user-attachments/assets/b62bc5a4-5b01-402e-9e20-fb73ed94fb10" />
 
+
 <img width="611" height="269" alt="CAP5" src="https://github.com/user-attachments/assets/e3a65c05-a402-417a-a935-b1c402ad37c4" />
 
+![Uploading CAP5.PNG…]()
